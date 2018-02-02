@@ -569,7 +569,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
 
         <div class="box box-info">
           <div class="box-header">
-            <h3 class="box-title">Tambah rute</h3>
+            <a href="index.php" class="btn btn-primary">Lihat rute</a>
           </div>
           <div class="box-body">
 
@@ -604,23 +604,6 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
               <div class="form-group">
                 <label>harga:</label>
                 <input type="text" class="form-control" name="harga" placeholder="harga">
-              </div>
-              <div class="form-group">
-                <label>pesawat:</label>
-                <select name="idtrans">
-                  <?php
-                  $res=mysqli_query($link,"SELECT * FROM maskapai");
-                  while($row=mysqli_fetch_array($res))
-                  {
-                    ?>
-                    <option><?php echo $row["nama"]; ?></option>
-
-                    <?php
-                  }
-
-
-                  ?> 
-                </select>
               </div>
               <button class="btn btn-primary" type="submit">submit</button>
             </form>

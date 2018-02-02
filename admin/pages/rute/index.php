@@ -1,6 +1,9 @@
 <?php
 include 'koneksi.php';
 ?>
+
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -341,7 +344,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
           </span>
         </a>
         <ul class="treeview-menu">
-          <li><a href="../../index.html"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
+          <li><a href="../../index.php"><i class="fa fa-circle-o"></i> Dashboard v1</a></li>
           <li><a href="../../index2.html"><i class="fa fa-circle-o"></i> Dashboard v2</a></li>
         </ul>
       </li>
@@ -531,7 +534,6 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
           <div class="box-header">
             <a href="tambahrute.php" class="btn btn-primary">tambah rute</a>
           </div>
-          <!-- /.box-header -->
           <div class="box-body">
             <table id="example1" class="table table-bordered table-striped">
               <thead>

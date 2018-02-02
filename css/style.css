@@ -28,9 +28,10 @@
 	nav.horizontal ul li{display: inline-block;}/* horizontal menu */
 	img{max-width:100%;}
 	/*-- //Reset-Code --*/
-	body {
-		background:url('../images/1.jpg') no-repeat 0px 0px;
-		background-size: cover;
+	.pala {
+		background-color: skyblue;
+		padding-bottom: 40px;
+		background-size: contain;
 		font-family: 'Open Sans', sans-serif;
 		background-attachment: fixed;
 		background-position: center;
@@ -46,7 +47,7 @@ CSS Settings For HTML Div ExactCenter
 	font-family:raleway
 }
 span {
-	color:red
+	color:white;
 }
 h2 {
 	background-color:#FEFFED;
@@ -73,7 +74,7 @@ hr {
 
 input[type=submit] {
 	width:100%;
-	background-color:#FFBC00;
+	background-color:dodgerblue;
 	color:#fff;
 	border:2px solid #FFCB00;
 	padding:10px;
@@ -132,7 +133,7 @@ h1{
 	padding: 15px 0px;
 	margin: 0 auto;
 	text-align: center;
-	background: #FFC107;
+	background: dodgerblue;
 }
 .resp-tab-item {
 	font-size: 1.1em;
@@ -176,9 +177,9 @@ form {
 	background:rgba(3, 3, 3, 0.57);
 	padding: 25px;
 }
-h3 {
+.labelon {
 	font-size: 16px;
-	color:#FFC107;
+	color:white;
 	margin-bottom: 7px;
 	text-align: center;
 }
@@ -352,7 +353,7 @@ input[type="checkbox"]{
 input[type="submit"] {
 	font-size: 14px;
 	color: #fff;
-	background:#ffc107;
+	background:dodgerblue;
 	border: none;
 	outline: none;
 	padding: 10px 20px;
@@ -365,7 +366,7 @@ input[type="submit"] {
 	-ms-transition: 0.5s all ease;
 }
 input[type="submit"]:hover  {
-	background:#212121;
+	background:skyblue;
 	color:#fff;
 }
 /*-- load-more --*/

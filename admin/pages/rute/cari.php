@@ -1,9 +1,10 @@
 <?php
 include 'koneksi.php';
 ?>
-<form action="index.php" method="get">
+<form action="cari.php" method="get">
   <label>Cari :</label>
-  <input type="text" name="cari">
+  <input type="text" name="caridari" placeholder="keberangkatan" required>
+  <input type="text" name="caritujuan" placeholder="tujuan" required>
   <input type="submit" value="Cari">
 </form>
 <?php 
@@ -12,24 +13,28 @@ if(isset($_GET['cari'])){
   echo "<b>Hasil pencarian : ".$cari."</b>";
 }
 ?>
-<table border="1">
-  <tr>
-    <th>No</th>
-    <th>Nama</th>
-  </tr>
-  <?php 
-  if(isset($_GET['cari'])){
-    $cari = $_GET['cari'];
-    $data = mysql_query("select * from transport where nama like '%".$cari."%'");       
-  }else{
-    $data = mysql_query("select * from transport");   
+<style type="text/css">
+  td{
+    padding: 10px 20px;
   }
-  $no = 1;
-  while($d = mysql_fetch_array($data)){
-  ?>
-  <tr>
-    <td><?php echo $no++; ?></td>
-    <td><?php echo $d['nama']; ?></td>
-  </tr>
-  <?php } ?>
-</table>
+</style>
+<table border="0" style="margin: 10px;">
+  
+  <?php 
+  if(isset($_GET['caridari'])){
+    $caridari = $_GET['caridari'];
+    $caritujuan = $_GET['caritujuan'];
+    $data = mysql_query("select * from rute where dari like '".$caridari."' and tujuan like '".$caritujuan."' order by harga");  
+    while($d = mysql_fetch_array($data)){
+      ?>
+      <tr>
+        <td><?php echo $d['dari']; ?></td>
+        <td><?php echo $d['tujuan']; ?></td>
+        <td><?php echo $d['jam']; ?></td>
+        <td>Rp. <?php echo $d['harga']; ?></td>
+        <td><a href="#">Pesan</a></td>
+      </tr>
+      <?php } ?>
+    </table>
+
+    <?php }  ?>

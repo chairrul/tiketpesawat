@@ -543,14 +543,14 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
                   <th>Keberangkatan</th>
                   <th>Tujuan</th>
                   <th>Harga</th>
-                  <th>id Pesawat</th>
+                  <th>Pesawat</th>
                   <th>Action</th>
                   <th>Action</th>
                 </tr>
               </thead>
               <tbody>
                 <?php
-                $query=mysql_query("SELECT * FROM rute");
+                $query=mysql_query("SELECT rute.id, rute.dari, rute.tujuan, rute.harga, rute.jam, transport.nama from rute, transport WHERE rute.idtransport = transport.id order by rute.id;");
                 $no=1;
                 while($var=mysql_fetch_array($query)){
                   echo "<tr>
@@ -559,7 +559,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
                   <td>$var[dari]</td>
                   <td>$var[tujuan]</td>
                   <td>$var[harga]</td>
-                  <td>$var[idtransport]</td>
+                  <td>$var[nama]</td>
                   <td><a href='delete.php?id=$var[id]'>Delete</a></td>
                   <td><a href='formedit.php?id=$var[id]'>Edit</a></td>
                   </tr>";
@@ -574,7 +574,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
                   <th>Keberangkatan</th>
                   <th>Tujuan</th>
                   <th>Harga</th>
-                  <th>id Pesawat</th>
+                  <th>Pesawat</th>
                   <th>Action</th>
                   <th>Action</th>
                 </tr>

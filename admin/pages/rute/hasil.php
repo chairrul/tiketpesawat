@@ -21,69 +21,41 @@ include 'koneksi.php';
     font-size: 20px;
     color: #111;
   }
-  .content {
-    width: 80%;
-    margin: 0 auto;
-    margin-top: 50px;
-  }
-  .tt-hint,
-  .caridari,.caritujuan, .btn {
-    border: 2px solid #CCCCCC;
-    border-radius: 8px 8px 8px 8px;
-    font-size: 24px;
-    height: 45px;
-    line-height: 30px;
-    outline: medium none;
-    padding: 8px 12px;
-    width: 400px;
-  }
-  .tt-dropdown-menu {
-    width: 400px;
-    margin-top: 5px;
-    padding: 8px 12px;
-    background-color: #fff;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 8px 8px 8px 8px;
-    font-size: 18px;
-    color: #111;
-    background-color: #F1F1F1;
-  }
+  
 </style>
-<script>
-  $(document).ready(function() {
 
-    $('input.caridari').typeahead({
-      name: 'caridari',
-      remote: 'mysql.php?query=%QUERY'
-
-    });
-
-  })
-  $(document).ready(function() {
-
-    $('input.caritujuan').typeahead({
-      name: 'caritujuan',
-      remote: 'mysql.php?querya=%QUERY'
-
-    });
-
-  }
-</script>
 </head>
 
 <body>
   <div class="content">
 
-    <form action="hasil.php" method="get">
+    <form accept="hasil.php" method="get">
       <h1>Cari rute</h1>
       <input type="text" name="caridari" size="30" class="caridari" placeholder="Masukan kota keberangkatan">
       <input type="text" name="caritujuan" size="30" class="caritujuan" placeholder="Masukan kota tujuan">
       <input type="submit" value="Cari" class="btn btn-primary">
     </form>
   </div>
+  <table border="0" style="margin: 10px;">
 
-   
+    <?php 
+    if(isset($_GET['caridari'])){
+      $caridari = $_GET['caridari'];
+      $caritujuan = $_GET['caritujuan'];
+      $data = mysql_query("select * from rute where dari like '".$caridari."' and tujuan like '".$caritujuan."' order by harga");  
+      while($d = mysql_fetch_array($data)){
+        ?>
+        <tr>
+          <td><?php echo $d['dari']; ?></td>
+          <td><?php echo $d['tujuan']; ?></td>
+          <td><?php echo $d['jam']; ?></td>
+          <td>Rp. <?php echo $d['harga']; ?></td>
+          <td><a href="#">Pesan</a></td>
+        </tr>
+        <?php } ?>
+      </table>
+
+      <?php }  ?>
 
     </body>
 

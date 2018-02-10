@@ -1,5 +1,5 @@
 <?php
-include 'koneksi.php';
+include 'admin/pages/rute/koneksi.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -68,7 +68,7 @@ include 'koneksi.php';
 
     });
 
-  }
+  })
 </script>
 </head>
 
@@ -82,6 +82,7 @@ include 'koneksi.php';
       <input type="submit" value="Cari" class="btn btn-primary">
     </form>
   </div>
+  <table border="0" style="margin: 10px;">
 
    
 

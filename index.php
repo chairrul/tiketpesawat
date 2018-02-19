@@ -50,10 +50,24 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
   padding: 15px 20px;
 }
 .autol{
+
   height: 45px;
   width: 100%;
   border:2px solid gray ;
   border-radius: 7px;
+
+  height: 35px;
+  width: 100%;
+  background-color: #ffffff;
+  color: #565656;
+  font-family: 'Rubik', sans-serif;
+  font-size: 1rem;
+  line-height: 1.43;
+  min-height: 2.1em;
+  padding: 5px;
+  border: 0;
+  border-radius: 0;
+
 }
 .lab{
   color: white;
@@ -89,11 +103,14 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
          </span>
          <span class="navbar-caption-wrap">
           <a class="navbar-caption text-white display-4" href="index.php">
-            Book My Flight
+
+            PROVEL.com
+
           </a>
         </span>
       </div>
     </div>
+
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav nav-dropdown nav-right" data-app-modern-menu="true">
         <li class="nav-item">
@@ -111,6 +128,8 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
       </ul>
 
     </div>
+
+
   </nav>
 </section>
 
@@ -157,12 +176,21 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
   <div class="container">
 
 
+
     <h1 class="mbr-section-title align-center pb-3 mbr-white mbr-bold mbr-fonts-style display-1">
       INTRO WITH POPUP VIDEO
     </h1>
 
     <h3 class="mbr-section-subtitle mbr-fonts-style display-5">
       Full-screen intro with background image, color, overlay, icons, popup video and subscribe form
+
+    <h1 class="mbr-section-title align-center pb-3 mbr-white mbr-bold mbr-fonts-style display-1"><br>
+      PROVEL.com
+    </h1>
+
+    <h3 class="mbr-section-subtitle mbr-fonts-style display-5">
+      choose your comfort seat here
+
     </h3>
 
     <div class="container mt-5 pt-5 pb-5">
@@ -199,9 +227,15 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
               <select class="form-control select2" style="width: 100%;" name="caritujuan" class="caritujuan autol">
                 <optgroup disabled="">cari kota</optgroup>
                 <?php
+
                 $query=mysql_query("SELECT DISTINCT tujuan from rute;");
                 while($var=mysql_fetch_array($query)){
                   echo "<option>$var[tujuan]</option>";
+
+                $query=mysql_query("SELECT DISTINCT dari from rute;");
+                while($var=mysql_fetch_array($query)){
+                  echo "<option>$var[dari]</option>";
+
                 }
                 ?>
               </select>
@@ -211,7 +245,11 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
 
           <div class="col-lg-4 col-md-6 col-sm-12 inp">
             <label class="lab">Tanggal Kebrerangkatan</label>
+
             <input type="date" name="" size="30" class="caritujuan autol" >
+
+            <input type="date" name="caritanggal" size="30" class="caritujuan autol" >
+
           </div>
           <div class="subm">
             <input type="submit" value="Cari" class="btn btn-primary">
@@ -264,6 +302,7 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
 
 
   <div class="container">
+
     <div class="media-container-row">
       <?php
       $query=mysql_query("SELECT * from rute, transport where rute.idtransport = transport.id order by harga limit 4;");
@@ -319,6 +358,42 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
     }
     ?>
 
+    <div class="media-container-row" style="margin: 60px 20px;">
+
+    <?php 
+    $data = mysql_query("SELECT rute.id, rute.dari, rute.tujuan, rute.harga, rute.Tanggal, rute.jam, transport.logo, transport.nama from rute, transport where rute.idtransport = transport.id order by rute.harga limit 4");  
+    while($var = mysql_fetch_array($data)){
+      ?>
+      <div class="plan col-12 mx-2 my-2 justify-content-center col-lg-3">
+        <div class="plan-header text-center pt-5">
+          <h3 class="plan-title mbr-fonts-style display-5">
+            <?php echo $var['dari']; ?><br>ke<br>
+            <?php echo $var['tujuan']; ?>
+          </h3>
+          <div class="plan-price">
+            <span class="price-value mbr-fonts-style display-5">
+              Rp.
+            </span><br>
+            <span class="price-figure mbr-fonts-style display-2">
+              <?php echo $var['harga']; ?>
+            </span><br>
+            <small class="price-term mbr-fonts-style display-7">
+              <?php echo $var['jam']; ?>
+            </small>
+          </div>
+        </div>
+        <div class="plan-body pb-5">
+
+          <div class="mbr-section-btn text-center pt-4">
+            <?php echo"<a class='btn btn-primary display-4' href='pesan.php?id=$var[id]'>Pesan</a>"?>
+          </div>
+        </div>
+      </div>
+      <?php } ?>
+
+
+
+
 
 
 
@@ -328,6 +403,10 @@ href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,30
 
   </div>
 </div>
+
+    </div>
+  </div>
+
 </section>
 <script src="assets/web/assets/jquery/jquery.min.js"></script>
 <script src="assets/popper/popper.min.js"></script>

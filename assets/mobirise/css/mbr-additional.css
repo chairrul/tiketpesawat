@@ -1762,7 +1762,15 @@ body {
   color: #c1c1c1 !important;
 }
 .cid-qIKXnbAvci {
+
   background-image: url("../../../assets/images/2-2000x1333.jpg");
+
+
+  background-image: url("../../../assets/images/1.jpeg");
+
+  background-image: url("../../../assets/images/2-2000x1333.jpg");
+
+
 }
 .cid-qIKXnbAvci .mbr-icofont {
   font-size: 48px;
@@ -1897,7 +1905,15 @@ body {
   }
 }
 .cid-qIKXVaAvWS {
+
   padding-top: 90px;
+
+
+  padding-top: 10px;
+
+  padding-top: 90px;
+
+
   padding-bottom: 90px;
   background: linear-gradient(45deg, #073b4c, #58a5bf);
 }
